@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_main"
+    app:startDestination="@id/mainFragment">
+    <!--Main-->
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="ameri.hossein.weatherapp.ui.main.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" />
+    <!--Add city-->
+    <action
+        android:id="@+id/actionToAddCity"
+        app:destination="@id/addCityFragment" />
+    <dialog
+        android:id="@+id/addCityFragment"
+        android:name="ameri.hossein.weatherapp.ui.add_city.AddCityFragment"
+        android:label="fragment_cities_list"
+        tools:layout="@layout/fragment_add_city" />
+    <!--Cities list-->
+    <action
+        android:id="@+id/actionToCitiesList"
+        app:destination="@id/citiesListFragment" />
+    <dialog
+        android:id="@+id/citiesListFragment"
+        android:name="ameri.hossein.weatherapp.ui.cities.CitiesListFragment"
+        android:label="citiesListFragment"
+        tools:layout="@layout/fragment_cities_list" />
+    <!--Info-->
+    <action
+        android:id="@+id/actionToInfo"
+        app:destination="@id/infoFragment" />
+    <dialog
+        android:id="@+id/infoFragment"
+        android:name="ameri.hossein.weatherapp.ui.info.InfoFragment"
+        android:label="fragment_info"
+        tools:layout="@layout/fragment_info">
+        <argument
+            android:name="Data"
+            app:argType="ameri.hossein.weatherapp.data.model.main.ResponseCurrentWeather" />
+    </dialog>
+</navigation>
